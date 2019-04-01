@@ -1,23 +1,41 @@
-<h1 align="center"> BOOKSHELF APP</h2>
+<h1 align="center">Project DevOps</h1>
 
 <h2 align="center">Requirements</h2>
 
-This app for GCP lab work
+- GCP account
+- Terraform
+- Ansible
 
-- Cloud Storage bucket with public-read rights
-- Cloud SQL instance
+> Note: You should never push your gcp credentials to public and allways destroy resources in cloud after work
+---
 
-> Note: You must authenticate gcloud to use app from your local machine.
+![](./Phase_III_Project.png)
 
-<h2 align="center">Config & Run</h2>
+<h2 align="center">Task Breakdown</h2>
 
-This app for GCP lab work
+## GCP Console
 
-    DATA_BACKEND = 'cloudsql'
-    PROJECT_ID = 'YOUR_PROJECT_ID'
-    CLOUDSQL_USER = 'CLOUD_SQL_USER'
-    CLOUDSQL_PASSWORD = 'SQL_USER_PASSWORD'
-    CLOUDSQL_DATABASE = 'DATABASE_NAME'
-    CLOUDSQL_CONNECTION_NAME = 'YOUR_PROJECT_ID:REGION:CLOUD_SQL_INSTANCE_NAME'
+- Create new project (or use default)
+- Create new Service Account for Terraform (or use default)
+- Create Cloud Storage bucket for Terraform state file
+- Enabe all necessary APIs:
+  - [x] Cloud SQL Admin API
+  - [x] Cloud Pub/Sub API
+  - [x] Service Networking API
+  - [x] Cloud Resource Manager API
 
-> Note: You must authenticate gcloud to use app from your local machine.
+## Terraform
+
+- Use remote state file in separate Cloud Storage bucket
+  - Create Cloud Storage Bucket for Terraform remote state
+- Create VPC Network
+- Create firewall rules
+- Create Cloud NAT
+- Create SQL instance with private ip
+- Create Cloud Storage Bucket for Application content
+- Create Service Account for Application instance
+- Create Instance template (fill up metadata: SQL instance connection string, bucket name)
+- Create MIG
+- Create HTTP LB
+
+> Optional: Create Terraform Modules
