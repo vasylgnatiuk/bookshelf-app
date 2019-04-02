@@ -5,7 +5,6 @@
 - GCP account
 - Terraform
 - Ansible
-- Application setup [tutorial](https://cloud.google.com/python/tutorials/bookshelf-on-compute-engine)
 
 > Note: You should never push your gcp credentials to public and allways destroy resources in cloud after work
 ---
@@ -44,14 +43,26 @@
 
 ## Ansible
 
+- Install dependencies `git, virtualenv`
+- Install Fluentd logging monitor
+- Setup SQL Proxy
 - Cloning the sample app (this repo)
 - Configuring the app config.py
-  - [x] PROJECT_ID
-  - [x] CLOUD_STORAGE_BUCKET
-  - [x] CLOUDSQL_USER
-  - [x] CLOUDSQL_PASSWORD
-  - [x] CLOUDSQL_DATABASE
-  - [x] CLOUD_STORAGE_BUCKET
-- Enable application at startup ([example](https://github.com/GoogleCloudPlatform/getting-started-python/blob/master/7-gce/gce/startup-script.sh))
+```
+  PROJECT_ID={YOUR_PROJECT_ID}
+  CLOUDSQL_USER={YOUR_SQL_USER}
+  CLOUDSQL_PASSWORD={YOUR_SQL_USER_PASSWORD}
+  CLOUDSQL_DATABASE={YOUR_SQL_DATABASE_NAME}
+  CLOUDSQL_CONNECTION_NAME={YOUR_SQL_CONNECTION_NAME}
+  CLOUD_STORAGE_BUCKET={YOUR_BUCKET_NAME}
+```
+- Install app dependencies
+```
+  virtualenv -p python3 env
+  source env/bin/activate
+  pip install -r requirements.txt
+```
+- Create tables with command: `python bookshelf/modelcloudsql.py`
+- Enable application at startup
 
-> Optional: Create Terraform Modules
+> Google [tutorial](https://cloud.google.com/python/tutorials/bookshelf-on-compute-engine) for this python application
