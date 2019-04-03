@@ -34,7 +34,7 @@
 - Create SQL database
 - Create Cloud Storage Bucket for Application content
 - Create Service Account for Application instance
-- Create Instance template (startup-script with vars for [ansible](#ansible)
+- Create Instance template (startup-script with vars for [ansible](#ansible))
 - Create MIG
 - Create firewall rules
 - Create HTTP LB
