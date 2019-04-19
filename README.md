@@ -32,7 +32,7 @@
   pip install -r requirements.txt
 ```
 
-- Create tables with command: `python bookshelf/modelcloudsql.py`
+- Create tables with command: `python bookshelf/model_cloudsql.py`
 - Run application: `honcho start -f ./procfile worker bookshelf`
 
 > Google [tutorial](https://cloud.google.com/python/tutorials/bookshelf-on-compute-engine) for this python application
